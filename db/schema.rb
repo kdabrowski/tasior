@@ -11,16 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428130706) do
+ActiveRecord::Schema.define(version: 20160428135238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "traces", force: :cascade do |t|
+  create_table "geo_entries", force: :cascade do |t|
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "trace_id"
   end
 
+  add_index "geo_entries", ["trace_id"], name: "index_geo_entries_on_trace_id", using: :btree
+
+  create_table "traces", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "geo_entries", "traces"
 end
