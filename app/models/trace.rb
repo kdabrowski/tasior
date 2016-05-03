@@ -1,4 +1,4 @@
 class Trace < ActiveRecord::Base
-  serialize :geo, JSON
+  serialize :geo, Array 
 end
 

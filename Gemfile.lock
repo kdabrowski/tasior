@@ -50,6 +50,10 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
+    geokit (1.10.0)
+    geokit-rails (2.1.0)
+      geokit (~> 1.5)
+      rails (>= 3.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -147,6 +151,7 @@ PLATFORMS
 
 DEPENDENCIES
   factory_girl_rails
+  geokit-rails
   pg
   pry
   rails (= 4.2.6)

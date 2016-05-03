@@ -6,6 +6,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pg'
 gem 'factory_girl_rails'
 gem 'responders', '~> 2.0'
+gem 'geokit-rails'
 
 group :development, :test do
   gem 'pry'
