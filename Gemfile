@@ -7,6 +7,7 @@ gem 'pg'
 gem 'factory_girl_rails'
 gem 'responders', '~> 2.0'
 gem 'geocoder'
+gem 'httparty'
 
 group :development, :test do
   gem 'pry'
