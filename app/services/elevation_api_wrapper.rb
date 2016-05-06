@@ -8,16 +8,11 @@ class ElevationApiWrapper
     @trace = trace
   end
 
-  def call!
-    add_elevations
-  end
-
-  private
-
-  def add_elevations
+  def add_elevations_to_trace
     @trace.geo.each_index { |i| @trace.geo[i][:elevation] = elevations[i] }
   end
 
+  private
 
   def lat_and_long_from_trace
     @trace.geo.map { |hash| hash.reject { |key| key == :distance} }

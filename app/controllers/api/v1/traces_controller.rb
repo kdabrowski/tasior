@@ -14,6 +14,7 @@ class Api::V1::TracesController < Api::V1::BaseController
     @trace = Trace.new(trace_params)
     if @trace.save
       @trace.update_distances
+      @trace = ElevationApiWrapper.new(@trace).add_elevations_to_trace
       respond_with @trace, location: nil
     else
       render json:  @trace.errors.to_json, status: 422
@@ -24,6 +25,7 @@ class Api::V1::TracesController < Api::V1::BaseController
     @trace.update_attributes(trace_params)
     if @trace.save
       @trace.update_distances
+      @trace = ElevationApiWrapper.new(@trace).add_elevations_to_trace
       respond_with @trace, location: nil
     else
       render json:  @trace.errors.to_json, status: 422
